@@ -52,7 +52,7 @@ void *updatedelete(heap_t *h,int i){
     }
   }
   else {
-    if (h->data[c1] > h->data[i]){
+    if (h->data[c1] > h->data[i] && h->data[c1]>=h->data[c2]){
       int tmp = h->data[i];
       h->data[i] = h->data[c1];
       h->data[c1] = tmp;
@@ -60,8 +60,8 @@ void *updatedelete(heap_t *h,int i){
     }
     if (h->data[c2] > h->data[i]){
       int tmp = h->data[i];
-      h->data[i] = h->data[c1];
-      h->data[c1] = tmp;
+      h->data[i] = h->data[c2];
+      h->data[c2] = tmp;
       updatedelete(h,c2);
     }
   }
